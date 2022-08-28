@@ -9,7 +9,7 @@ app.set('views' , path.join (__dirname , 'views'));
 
 
 app.get('/' , function(req , res){
-  return  res.render('home'); 
+  return  res.render('home' , {title:'My Contact List'}); 
 })
 
 
