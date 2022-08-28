@@ -1,4 +1,5 @@
 const express = require("express");
+const { rmSync } = require("fs");
 const path = require("path");
 const port = 8000;
 
@@ -6,7 +7,6 @@ const app = express();
 
 app.set("view engine", "ejs"); //app.set sets the value for the key as (view engine:ejs)
 app.set("views", path.join(__dirname, "views"));
-
 
 //creating contacts list
 let contactList = [
@@ -24,7 +24,6 @@ let contactList = [
   },
 ];
 
-
 //routes
 app.get("/", function (req, res) {
   return res.render("home", {
@@ -33,7 +32,15 @@ app.get("/", function (req, res) {
   });
 });
 
+app.get("/demo", function (req, res) {
+  return res.render("demo", {
+    title: "Demo",
+  });
+});
 
+app.post("/create-contact", function (req, res) {
+  return res.redirect("/demo");
+});
 
 //creating the server
 app.listen(port, function (err) {
