@@ -78,7 +78,7 @@ app.get('/delete-contact/', function(req, res){
 });
 
 
-//creating the server
+// creating the server using express
 app.listen(port, function (err) {
   if (err) {
     console.log("Error", err);
