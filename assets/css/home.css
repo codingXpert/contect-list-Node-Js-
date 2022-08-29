@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    text-align: center;
+    background: rgb(136, 246, 233);
+}
+
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    color: gray;
+}
+
+ul {
+    list-style-type: none;
+   }
+
+   button{
+    border: none;
+    background: rgb(255, 0, 43);
+    border-radius: 5px;
+    cursor: pointer;
+   }
+
+   /* main div */
+   .main{
+    display: flex;
+    
+    
+   }
+
+   /* inner div */
+   .inner{
+    flex-direction: row;
+    justify-content: space-between;
+   }

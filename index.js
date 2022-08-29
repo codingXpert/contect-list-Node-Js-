@@ -10,13 +10,14 @@ app.set("views", path.join(__dirname, "views"));
 
 // middleware(app.use() is termed as middleware)
 app.use(express.urlencoded()); //used to read form's data in decoded form(initialy it is encoded when received from form)
+app.use(express.static('assets')); // telling the express to use static files(css,js,images etc) from assets folder
 
 
 //playing with middleware
-app.use(function(req , res ,next){
-    console.log('middleware called');
-    next();   //the next() will take us to the next route(i.e, home route) if no middleware is remaining  there to execute
-})
+// app.use(function(req , res ,next){
+//     console.log('middleware called');
+//     next();   //the next() will take us to the next route(i.e, home route) if no middleware is remaining  there to execute
+// })
 
 //creating contacts list
 let contactList = [

@@ -11,12 +11,22 @@
         <%= locals.title %> 
     </title>
 
+    <!-- font awesome link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- our css should be below all other styles so that we can override it -->
+    <link rel="stylesheet" href="/css/home.css">
+
 </head>
 
 <body>
-    <h1>Contact List</h1>
+   
+    <h1 id="page-heading">
+        <i class="fa fa-address-book"></i>
+        Contact List</h1>
 
-    <div>
+ <div class="main">
+    <div class="inner">
         <ul>
             <% for(let i of contact_list) { %>
 
@@ -28,12 +38,17 @@
                 <% } %>
         </ul>
     </div>
+</div>
 
     <form action="/create-contact" method="POST">
-        <input type="text" name="name" placeholder="Full Name">
-        <input type="number" name="phone" placeholder="Enter Phone">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="number" name="phone" placeholder="Enter Phone" required>
         <button type="submit">Add Contact</button>
     </form>
 
+
+
+    <!-- linking js file -->
+    <script src="/js/home.js"></script>
 </body>
 </html>
