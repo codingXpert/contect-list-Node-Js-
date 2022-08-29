@@ -25,25 +25,36 @@
         <i class="fa fa-address-book"></i>
         Contact List</h1>
 
- <div class="main">
-    <div class="inner">
+ <div id = "contact-list-container">
+    
         <ul>
             <% for(let i of contact_list) { %>
+               
+                <li class = "contact">
+                     <div class="details"> 
+                        <p><%= i.name %></p>
+                        <p><%= i.phone %></p>
+                     </div>
 
-                <li>
-                    <p> <%= i.name %> </p>
-                    <p> <%= i.phone %> </p>
-                </li>
+                     <div class="delete-button">
+                        <a href="/delete-contact/?phone=<%= i.phone %>">
+                            <i class = "fa fa-window-close"></i>
+                        </a>
+                    </div>
+
+                 </li>
+                
+              
 
                 <% } %>
         </ul>
     </div>
 </div>
 
-    <form action="/create-contact" method="POST">
+    <form  id = "" action="/create-contact" method="POST">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="number" name="phone" placeholder="Enter Phone" required>
-        <button type="submit">Add Contact</button>
+        <button id = "add-button" type="submit">Add Contact</button>
     </form>
 
 

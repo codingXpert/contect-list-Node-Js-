@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    padding: 0;
     text-align: center;
     background: rgb(136, 246, 233);
 }
@@ -10,26 +11,51 @@ body{
     color: gray;
 }
 
-ul {
+#contact-list-container ul {
+    padding:0;
     list-style-type: none;
    }
 
-   button{
+   .contact{
+    display: flex;
+    justify-content: center;
+    /* padding: 3px 10px; */
+    border: 1px solid white;
+    background-color: #6f92f9;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    color: white;
+   }
+
+  #add-button{
     border: none;
     background: rgb(255, 0, 43);
     border-radius: 5px;
     cursor: pointer;
    }
 
-   /* main div */
-   .main{
-    display: flex;
-    
-    
+  /* .contact{
+    display:flex;
+    justify-content: center;
+
+  } */
+   .details{
+    display:flex;
+    justify-content: space-between;
+    width: 40%;
    }
 
-   /* inner div */
-   .inner{
-    flex-direction: row;
-    justify-content: space-between;
-   }
+/* delete button */
+.contact .delete-button{
+    width: 50%;
+}
+
+.delete-button{
+    display: inline-block;
+    position: relative;
+     bottom: 10%; 
+    left: 40%; 
+    background: red;
+    color: white;
+}
+
+   
