@@ -1,7 +1,7 @@
 const express = require("express");
 const { rmSync } = require("fs");
 const path = require("path");
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 const app = express();
 
