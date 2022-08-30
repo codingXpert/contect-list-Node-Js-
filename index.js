@@ -1,7 +1,9 @@
+const { error } = require("console");
 const express = require("express");
 const { rmSync } = require("fs");
 const path = require("path");
-const db = require('./config/mongoose')
+const db = require('./config/mongoose');
+const Contact = require('./models/contact')
 const port = process.env.PORT || 8000;
 
 const app = express();
@@ -51,15 +53,31 @@ app.get("/demo", function (req, res) {
 });
 
 app.post("/create-contact", function (req, res) {
+
+  //Storing records without database
 //   contactList.push({
 //     name: req.body.name,
 //     phone: req.body.phone,
 //   });
 
-contactList.push(req.body);
+// contactList.push(req.body);
 
-//   return res.redirect("/");
-     return res.redirect("back");
+// //   return res.redirect("/");
+//      return res.redirect("back");
+// });
+
+
+//storing records with database
+Contact.create({
+  name:req.body.name,
+  phone:req.body.phone
+} , function(err , newContact){
+  if(err){
+    console.log(`Error in creating a contact ${err}`);
+  }
+  console.log('*******' , newContact);
+  return res.redirect('back');
+  });
 });
 
 

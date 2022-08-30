@@ -5,61 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- <!-- locals is a global object -->
-    <title>
-        <%= locals.title %> 
-    </title>
-
-    <!-- font awesome link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- our css should be below all other styles so that we can override it -->
-    <link rel="stylesheet" href="/css/home.css">
 
+    <title>
+        <%= title%>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
-   
     <h1 id="page-heading">
         <i class="fa fa-address-book"></i>
-        Contact List</h1>
+        My Contacts List
+    </h1>
 
- <div id = "contact-list-container">
-    
-        <ul>
+    <div id="contact-list-container">
+        <ul id="unordered-list">
             <% for(let i of contact_list) { %>
-               
-                <li class = "contact">
-                     <div class="details"> 
-                        <p><%= i.name %></p>
-                        <p><%= i.phone %></p>
-                     </div>
+                <li id="li">
+                    <p>
+                        <%= i.name %>
+                    </p>
+                    <p>
+                        <%=i.phone %>
+                    </p>
 
-                     <div class="delete-button">
-                        <a href="/delete-contact/?phone=<%= i.phone %>">
-                            <i class = "fa fa-window-close"></i>
+                    <div class="delete-button">
+
+                        <a href="/delete-contact/?id=<%= i._id %>">
+                            <i class="fa fa-window-close"></i>
                         </a>
+
                     </div>
-
-                 </li>
-                
-              
-
+                </li>
                 <% } %>
         </ul>
-    </div>
-</div>
 
-    <form  id = "" action="/create-contact" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="number" name="phone" placeholder="Enter Phone" required>
-        <button id = "add-button" type="submit">Add Contact</button>
+    </div>
+
+    <form id="form" action="create-contact" method="post">
+        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="number" name="phone" placeholder="Enter Number" required>
+        <button type="submit">Add Contact</button>
     </form>
 
 
 
-    <!-- linking js file -->
-    <script src="/js/home.js"></script>
+
+    <!-- JAVA SCRIPT HERE -->
+    <script type="text/javascript" src="/js/home.js"></script>
 </body>
+
 </html>

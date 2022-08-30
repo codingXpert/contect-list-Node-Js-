@@ -1,61 +1,51 @@
 body{
-    margin: 0;
+    margin:0;
     padding: 0;
-    text-align: center;
-    background: rgb(136, 246, 233);
+    font-family:sans-serif ;
 }
-
 #page-heading{
     text-align: center;
     margin-top: 25px;
     color: gray;
 }
-
-#contact-list-container ul {
-    padding:0;
-    list-style-type: none;
-   }
-
-   .contact{
-    display: flex;
-    justify-content: center;
-    /* padding: 3px 10px; */
-    border: 1px solid white;
-    background-color: #6f92f9;
-    box-shadow: 1px 1px 1px 1px lightgray;
-    color: white;
-   }
-
-  #add-button{
-    border: none;
-    background: rgb(255, 0, 43);
-    border-radius: 5px;
-    cursor: pointer;
-   }
-
-  /* .contact{
+#contact-list-container{
     display:flex;
-    justify-content: center;
-
-  } */
-   .details{
-    display:flex;
-    justify-content: space-between;
-    width: 40%;
-   }
-
-/* delete button */
-.contact .delete-button{
-    width: 50%;
+    justify-content: space-around;
 }
-
+#unordered-list{
+    list-style: none;
+}
+#li{
+    width: 340px;
+    margin: 3px;
+    display:flex;
+    justify-content: space-around;
+    background-color: rgb(80, 137, 241);  
+}
+#li:hover{
+    background-color: gray;
+}
+#form{
+    text-align: center; 
+}
+#form input{
+    border: none;
+   border-bottom: 2px solid rgb(112, 199, 95);  
+}
+#form button{
+   
+  border-radius: 5px;
+  color: white;
+  border: none;
+  background-color: black;
+}
 .delete-button{
-    display: inline-block;
-    position: relative;
-     bottom: 10%; 
-    left: 40%; 
+    margin-top: 18px;
+    margin-right: -20px;
+}
+.delete-button a{
+    
     background: red;
     color: white;
+    
 }
-
-   
