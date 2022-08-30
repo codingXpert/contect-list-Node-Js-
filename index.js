@@ -40,9 +40,16 @@ let contactList = [
 
 //routes
 app.get("/", function (req, res) {
+Contact.find({} , function(err , allContacts){
+  if(err){
+    console.log('Error in fetching contacts from db');
+    return;
+  }
+
   return res.render("home", {
     title: "Contact List",
-    contact_list: contactList,
+    contact_list: allContacts
+    }); 
   });
 });
 
@@ -84,16 +91,18 @@ Contact.create({
 
 //deleting a contact
 app.get('/delete-contact/', function(req, res){
-  console.log(req.query);
-  let phone = req.query.phone
 
-  let contactindex = contactList.findIndex(contact => contact.phone == phone);
-
-  if(contactindex != -1){
-      contactList.splice(contactindex, 1);
-  }
-
-  return res.redirect('back');
+  //get the id from the url
+  let id = req.query.id;
+ 
+  //find the contact in the database using id and delete
+  Contact.findByIdAndDelete(id , function(err){
+    if(err){
+      console.log(`Error in deleting the contact from database`);
+      return;
+    }
+    return res.redirect('back');
+  });
 });
 
 
