@@ -1,5 +1,6 @@
 const { error } = require("console");
 const express = require("express");
+require('dotenv').config();
 const { rmSync } = require("fs");
 const path = require("path");
 const db = require('./config/mongoose');
